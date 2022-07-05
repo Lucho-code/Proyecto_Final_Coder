@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %} DATOS DE RECETA {% endblock titulo %}
+
+{% block contenido %}
+
+
+<h1 style="margin-left:30rem">Detalles de las recetas</h1>
+
+<a style="margin-left: 8rem;" class="btn btn-primary" href="/recetas/">Regresar</a>
+
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            {% if receta.image_recetas %}
+            <img src="{{receta.image_recetas.url}}" class="card-img-top" >
+            {% endif %}   
+            <h4 class="card-title">{{object.nombre}}</h4>
+            <h5>Tipo de receta</h5>
+            <p class="card-text">{{object.tipo}}</p>
+            <h5>Ingredientes</h5>
+            <p class="card-text">{{object.ing_y_cant}} </p>
+            <h5>Paso a paso</h5>
+            <p class="card-text">{{object.procedimiento}}</p>
+            <a href="/recetas/actualizar-receta/{{object.id}}/" class="btn btn-primary">Editar</a>
+            <a href="/recetas/eliminar-receta/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock contenido %}
